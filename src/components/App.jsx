@@ -19,7 +19,6 @@ export class App extends Component {
       this.setState({
         contacts: JSON.parse(savedContacts),
 			});
-			return;
     } 
   }
 
@@ -58,11 +57,11 @@ export class App extends Component {
       <>
         <Title>Phonebook</Title>
         <ContactForm
-          onSubmit={this.handleSubmit}
+          onClickSubmit={this.handleSubmit}
           contacts={this.state.contacts}
         />
         <Title>Contacts</Title>
-				<Filter onChange={this.handleChange} />
+				<Filter onInputChange={this.handleChange} />
         {this.state.contacts.length > 0 ? (
           <>
             <ContactsList

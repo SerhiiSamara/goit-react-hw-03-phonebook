@@ -22,8 +22,8 @@ export class ContactForm extends Component {
       return;
     }
     const id = nanoid();
-    this.props.onSubmit(this.state.name, this.state.number, id);
-    form.reset();
+    this.props.onClickSubmit(this.state.name, this.state.number, id);
+		form.reset();
   };
 
   handleChange = e => {
@@ -31,6 +31,7 @@ export class ContactForm extends Component {
   };
 
   render() {
+		
     return (
       <Form onSubmit={this.handleSubmit}>
         <Label htmlFor="">
@@ -65,7 +66,7 @@ export class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onClickSubmit: PropTypes.func.isRequired,
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
