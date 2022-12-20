@@ -23,7 +23,7 @@ export class ContactForm extends Component {
     }
     const id = nanoid();
     this.props.onClickSubmit(this.state.name, this.state.number, id);
-		form.reset();
+    this.setState({ name: '', number: '' });
   };
 
   handleChange = e => {
@@ -31,7 +31,6 @@ export class ContactForm extends Component {
   };
 
   render() {
-		
     return (
       <Form onSubmit={this.handleSubmit}>
         <Label htmlFor="">
