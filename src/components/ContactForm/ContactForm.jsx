@@ -10,6 +10,15 @@ export class ContactForm extends Component {
     number: '',
   };
 
+  static propTypes = {
+    onClickSubmit: PropTypes.func.isRequired,
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+      }).isRequired
+    ).isRequired,
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -63,12 +72,3 @@ export class ContactForm extends Component {
     );
   }
 }
-
-ContactForm.propTypes = {
-  onClickSubmit: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-};
